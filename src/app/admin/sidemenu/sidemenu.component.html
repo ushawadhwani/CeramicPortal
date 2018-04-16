@@ -1,0 +1,30 @@
+<p>
+  sidemenu works!
+</p>
+
+<ul class="nav navbar-nav">
+  <li routerLinkActive="active">
+    <a [routerLink]="['dashboard']">Dashboard</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['adminusers']">UserPage</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['products']">Products</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['category']">Category</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['exhibition']">Exhibitions</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['potentialusers']">Potential Users</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['reportabuse']">Reported abuse</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['spam']">Spam</a>
+  </li>
+</ul>
