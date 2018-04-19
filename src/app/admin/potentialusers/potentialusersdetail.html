@@ -1,0 +1,44 @@
+<!-- <mat-toolbar color="primary">My App</mat-toolbar> -->
+<h1 mat-dialog-title color="primary">Potential user details</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.fullname" placeholder="Full name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [(ngModel)]="data.email" type="email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Phone Number" maxlength="10" [(ngModel)]="data.phoneno">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-select placeholder="From where,got the user" [formControl]="useridControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let user of exhibitionlist" [value]="data.user">
+                {{data.user.fullname}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="useridControl.hasError('required')">Please choose a exhibition user from where we got the details of user</mat-error>
+    </mat-form-field>
+    <!-- <mat-form-field> -->
+        <mat-slide-toggle [(ngModel)]="data.addedtosysytem" [checked]="data.addedtosysytem">Added to our portal?</mat-slide-toggle>
+    <!-- </mat-form-field> -->
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Remarks"></textarea>
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save Changes</button>
+</div>
+
+
+<!-- fullname
+email
+phone no
+userid
+addedtosystem
+remarks -->

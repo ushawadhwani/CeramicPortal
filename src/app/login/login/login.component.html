@@ -1,0 +1,105 @@
+<!-- <div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+
+    <div class="panel-body">
+        New User
+        <a (click)="logOut()">Log Out</a>
+        <button (click)="RedirectToSignUp()">Register from here</button>
+
+        <form class="form-horizontal" novalidate (ngSubmit)="login(loginForm)" #loginForm="ngForm" autocomplete="off">
+            <fieldset>
+                <div class="form-group" [ngClass]="{'has-error': (userNameVar.touched || 
+                                          userNameVar.dirty) && 
+                                          !userNameVar.valid }">
+                    <label class="col-md-2 control-label" for="userNameId">User Name</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" id="userNameId" type="text" placeholder="User Name (required)" required (ngModel)="userName"
+                            name="userName" #userNameVar="ngModel" />
+                        <span class="help-block" *ngIf="(userNameVar.touched ||
+                                                      userNameVar.dirty) &&
+                                                      userNameVar.errors">
+                            <span *ngIf="userNameVar.errors.required">
+                                User name is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': (passwordVar.touched || 
+                                          passwordVar.dirty) && 
+                                          !passwordVar.valid }">
+                    <label class="col-md-2 control-label" for="passwordId">Password</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" id="passwordId" type="password" placeholder="Password (required)" required (ngModel)="password"
+                            name="password" #passwordVar="ngModel" />
+                        <span class="help-block" *ngIf="(passwordVar.touched ||
+                                                      passwordVar.dirty) &&
+                                                      passwordVar.errors">
+                            <span *ngIf="passwordVar.errors.required">
+                                Password is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary" type="submit" style="width:80px;margin-right:10px" [disabled]="!loginForm.valid">
+                                Log In
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default" [routerLink]="['/login']">
+                                Cancel
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
+    </div>
+
+</div> -->
+
+<div class='login-container'>
+    <mat-toolbar color="primary">{{pageTitle}}</mat-toolbar>
+    <form class="form-container form-horizontal" novalidate (ngSubmit)="login(loginForm)" #loginForm="ngForm" autocomplete="off">
+        <div class='error-message-class' *ngIf="errorMessage">
+            <mat-error>{{errorMessage}}</mat-error>
+        </div>
+
+        <mat-form-field>
+            <input matInput class="form-control" id="Email" type="email" [formControl]="email" placeholder="Email" required (ngModel)="email"
+                name="email" />
+            <mat-error *ngIf="email.invalid">
+                {{getErrorMessageForEmail()}}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput class="form-control" [type]="hide ? 'password' : 'text'" id="Password" type="password" [formControl]="password"
+                placeholder="Password" required (ngModel)="password" name="password" />
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="password.invalid">
+                Please enter your password
+            </mat-error>
+        </mat-form-field>
+
+        <div>            
+            <button [routerLink]="['/signup']" mat-button>Cancel</button>
+            <button [disabled]="!loginForm.valid" mat-button type="submit" cdkFocusInitial>Login</button>
+            <button (click)="getUser()">Please call users</button>
+        </div>
+    </form>
+
+    <div>
+        New User?
+        <a [routerLink]="['/signup']">Register Now</a>
+    </div>
+</div>
