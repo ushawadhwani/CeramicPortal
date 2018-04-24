@@ -29,14 +29,7 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private loginService: LoginService,
     private router: Router) { }
-    getUser(){
-      this.loginService.getUser().subscribe(
-        res => {
-          console.log('we got all the users');
-          console.log(res);
-        }
-      );
-    }
+
   login(loginForm: NgForm) {
     if (loginForm && loginForm.valid) {
       let email = this.email.value;

@@ -52,7 +52,6 @@ export class PotentialusersComponent implements OnInit {
       });
   }
 
-<<<<<<< HEAD
   getThePotentialuser(potentialuserid: string): void {
     this.potentialusersService.getSinglePotentialUsers(potentialuserid).subscribe(
       res => {
@@ -70,26 +69,6 @@ export class PotentialusersComponent implements OnInit {
       width: '50%',
       height: 'auto',
       data: potentialuserdetail
-=======
-  // potentialuser: {
-  fullname: string;
-  email: string;
-  phoneno: string;
-  userid: string;
-  // user: {
-  //   userid: string,
-  //   fullname: string
-  // }
-  addedtosystem: boolean;
-  remarks: string
-  // }
-
-  openDialog(): void {
-    let dialogRef = this.dialog.open(PotentialUsersDetailDialog, {
-      width: '500px',
-      height: '500px',
-      data: { fullname: this.fullname, email: this.email, phoneno: this.phoneno, userid: this.userid, addedtosysytem: this.addedtosystem, remarks: this.remarks }
->>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -97,7 +76,6 @@ export class PotentialusersComponent implements OnInit {
       console.log(result);
     });
   }
-<<<<<<< HEAD
 
   openConfirmationDialog(id) {
     this.dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
@@ -122,23 +100,16 @@ export class PotentialusersComponent implements OnInit {
     });
   }
 
-=======
->>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
 }
 
 @Component({
   selector: 'potential-user-detail-dialog',
-<<<<<<< HEAD
   templateUrl: 'potentialusersdetail.html',
   styleUrls: ['./potentialusers.component.css']
-=======
-  templateUrl: 'potentialusersdetail.html'
->>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
 })
 export class PotentialUsersDetailDialog {
   useridControl = new FormControl('', [Validators.required]);
   constructor(
-<<<<<<< HEAD
     private potentialusersService: PotentialusersService,
     public dialogRef: MatDialogRef<PotentialUsersDetailDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -173,13 +144,4 @@ export class PotentialUsersDetailDialog {
       }
     );
   }
-=======
-    public dialogRef: MatDialogRef<PotentialUsersDetailDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-  exhibitionlist: [{ id: 1, fullname: 'Exhibition 1' }, { id: 2, fullname: 'Exhibition 2' }];
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
->>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
 }
