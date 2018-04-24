@@ -1,0 +1,47 @@
+<!-- <mat-toolbar color="primary">Potential user details</mat-toolbar> -->
+<h1 mat-dialog-title color="primary">Exhibition details</h1>
+
+
+<div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.eventName" placeholder="Name">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.venue" placeholder="Venue">
+            </mat-form-field>
+        </mat-grid-tile>
+        
+        <mat-grid-tile>
+            <mat-form-field>
+                <input [(ngModel)]="data.startDate" matInput [matDatepicker]="startpicker" placeholder="Choose a start date">
+                <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+                <mat-datepicker #startpicker></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field>
+                <input [(ngModel)]="data.endDate" matInput [matDatepicker]="picker" placeholder="Choose sn end date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.description" placeholder="Description">
+            </mat-form-field>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+</div>
+<div mat-dialog-actions class="center-align">
+    <button mat-button (click)="onNoClick('cancel')">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" (click)="Savethedata(data)" cdkFocusInitial>Save Changes</button>
+</div>

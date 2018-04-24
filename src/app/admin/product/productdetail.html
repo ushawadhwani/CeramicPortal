@@ -1,0 +1,58 @@
+<!-- <mat-toolbar color="primary">Potential user details</mat-toolbar> -->
+<h1 mat-dialog-title color="primary">Product details</h1>
+
+
+<div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.name" placeholder="Product Name">
+            </mat-form-field>
+        </mat-grid-tile>
+        <!-- <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <mat-select placeholder="Product owner" [(value)]="data.userId.id" required>
+                    <mat-option *ngFor="let user of userList" [value]="user.id">
+                        {{user.firstName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="useridControl.hasError('required')">Please choose a owner for product user</mat-form-field>
+        </mat-grid-tile> -->
+        <mat-grid-tile>
+            {{data.categoryId.id}}
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <mat-select placeholder="Select category" [(value)]="data.categoryId.id" required>
+                    <mat-option *ngFor="let item of catList" [value]="item.id">
+                        {{item.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="catIdControl.hasError('required')">Please choose a category</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <mat-select placeholder="Select size" [(value)]="data.sizeId.id" required>
+                    <mat-option *ngFor="let size of sizeList" [value]="size.id">
+                        {{size.value}} ({{size.unit}})
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="sizeIdControl.hasError('required')">Please choose a size</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.description" placeholder="Product description">
+            </mat-form-field>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+</div>
+<div mat-dialog-actions class="center-align">
+    <button mat-button (click)="onNoClick('cancel')">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" (click)="Savethedata(data)" cdkFocusInitial>Save Changes</button>
+</div>

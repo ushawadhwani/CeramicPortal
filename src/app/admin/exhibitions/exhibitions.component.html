@@ -1,0 +1,45 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.eventName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Venue">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Venue </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.venue}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Start date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.startDate | date:'mm/dd/yyyy'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="End date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> End date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.endDate | date:'mm/dd/yyyy'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button>
+          <mat-icon (click)="getTheExhibition(element.id)">edit</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon (click)="openConfirmationDialog(element.id)">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

@@ -1,0 +1,53 @@
+<!-- <mat-toolbar color="primary">Potential user details</mat-toolbar> -->
+<h1 mat-dialog-title color="primary">Potential user details</h1>
+
+
+<div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.fullName" placeholder="Full name">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [(ngModel)]="data.email" type="email">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Phone Number" maxlength="10" [(ngModel)]="data.phoneNumber">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <mat-select placeholder="From where,got the user" [(value)]="data.userId.id" required>
+                    <mat-option *ngFor="let user of exhibitorslist" [value]="user.id">
+                        {{user.fullName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="useridControl.hasError('required')">Please choose a exhibition user from where we got the details of user</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            Added to our portal?
+            <mat-slide-toggle [(ngModel)]="data.addedtosysytem" [checked]="data.addedtosysytem"></mat-slide-toggle>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Remarks" [(ngModel)]="data.remarks"></textarea>
+            </mat-form-field>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+</div>
+<div mat-dialog-actions class="center-align">
+    <button mat-button (click)="onNoClick('cancel')">Cancel</button>
+    <!-- <button mat-button [mat-dialog-close]="data" (click)="Savethedata(data)"  cdkFocusInitial>Save Changes</button> -->
+    <button mat-button [mat-dialog-close]="data" (click)="onNoClick('save')"  cdkFocusInitial>Save Changes</button>
+</div>
