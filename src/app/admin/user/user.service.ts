@@ -17,10 +17,18 @@ export class UserService {
   constructor(private http: Http) { }
 
   private baseUrl = config.baseapiurl;
+
+  getAllRoles() {
+    return this.http.get(this.baseUrl + 'getRole')
+      .map((res: Response) => res.json())
+      //.do(res => console.log('getRole ' + JSON.stringify(res)))
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   getAllUser() {
     return this.http.get(this.baseUrl + 'getUserList')
       .map((res: Response) => res.json())
-      .do(res => console.log('getUserList: ' + JSON.stringify(res)))
+      //.do(res => console.log('getUserList: ' + JSON.stringify(res)))
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
   getAllUserByRole(role) {

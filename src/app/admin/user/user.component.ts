@@ -8,24 +8,25 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
 
   constructor(private userService: UserService) { }
-
+  roleList: any;
+  datasource:any;
   ngOnInit() {
+    this.getAllRole();
   }
 
-  getUserByRole(role) {
-    this.userService.getAllUserByRole(role).subscribe(
+  getAllRole(){
+    this.userService.getAllRoles().subscribe(
       res => {
         if (res.status) {
-          // this.dataSource = new MatTableDataSource<Element>(res.data);
-          // this.dataSource.paginator = this.paginator;
-          // this.dataSource.sort = this.sort;
-          console.log(res);
+          this.roleList = res.data;
+         // console.log(res);
         }
         else {
           console.log(res.message);
         }
       });;
-
   }
+
+  
 
 }

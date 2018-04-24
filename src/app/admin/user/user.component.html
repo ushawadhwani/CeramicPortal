@@ -1,5 +1,10 @@
 <mat-tab-group>
-  <mat-tab label="Manufacturers">
+
+    <mat-tab *ngFor='let role of roleList; trackBy: index;' label="{{role.name}}" (click)="getUserByRole(role)" >
+        <app-differentuser componentname="{{role.name}}"></app-differentuser>    
+      </mat-tab>
+
+  <!-- <mat-tab label="Manufacturers">
     <app-differentuser componentname='Manufacturer' datasource="getUserByRole('manufacturer')"></app-differentuser>
   </mat-tab>
   <mat-tab label="Dealers">
@@ -13,5 +18,5 @@
   </mat-tab>
   <mat-tab label="Builders">
     <app-differentuser componentname='Builder' datasource="getUserByRole('manufacturer')"></app-differentuser>
-  </mat-tab>
+  </mat-tab> -->
 </mat-tab-group>
