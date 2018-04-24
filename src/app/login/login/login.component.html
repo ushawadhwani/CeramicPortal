@@ -92,8 +92,14 @@
         </mat-form-field>
 
         <div>            
+<<<<<<< HEAD
             <button [disabled]="!loginForm.valid" mat-button type="submit" cdkFocusInitial>Login</button>
             <button [routerLink]="['/signup']" mat-button>Cancel</button>
+=======
+            <button [routerLink]="['/signup']" mat-button>Cancel</button>
+            <button [disabled]="!loginForm.valid" mat-button type="submit" cdkFocusInitial>Login</button>
+            <button (click)="getUser()">Please call users</button>
+>>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
         </div>
     </form>
 

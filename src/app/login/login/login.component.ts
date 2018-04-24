@@ -29,7 +29,14 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private loginService: LoginService,
     private router: Router) { }
-    
+    getUser(){
+      this.loginService.getUser().subscribe(
+        res => {
+          console.log('we got all the users');
+          console.log(res);
+        }
+      );
+    }
   login(loginForm: NgForm) {
     if (loginForm && loginForm.valid) {
       let email = this.email.value;
@@ -37,9 +44,8 @@ export class LoginComponent {
       this.authService.login(email, password);
       this.loginService.login(email, password).subscribe(
         res => {
-          console.log('login',res);
           if (res.status) {
-            //need to store user details in local storage
+            //store user details in local storage
             if (this.authService.redirectUrl) {
               this.router.navigateByUrl(this.authService.redirectUrl);
             } else {

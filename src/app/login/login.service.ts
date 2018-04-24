@@ -18,7 +18,7 @@ export class LoginService {
     private http: Http
   ) { }
   private baseUrl = config.baseapiurl;
-  
+
   login(email, password) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

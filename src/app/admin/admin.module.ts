@@ -83,6 +83,7 @@ import { DifferentuserComponent } from './user/differentuser/differentuser.compo
       },
     ])
   ],
+<<<<<<< HEAD
   entryComponents: [PotentialUsersDetailDialog, DeleteConfirmationDialogComponent, CategoryDetailDialog, SizeDetailDialog,
     ProductDetailDialog, ExhibitionDetailDialog, UserdetaildialogComponent],
   declarations: [SidemenuComponent, DashboardComponent, UserComponent, ProductComponent, ProductDetailDialog, CategoryComponent,
@@ -91,5 +92,11 @@ import { DifferentuserComponent } from './user/differentuser/differentuser.compo
     UserdetaildialogComponent,
     DifferentuserComponent],
   providers: [PotentialusersService, CategoryService, SizeService, ProductService, ExhibitionService, UserService]
+=======
+  entryComponents: [PotentialusersComponent, PotentialUsersDetailDialog],
+  declarations: [SidemenuComponent, DashboardComponent, UserComponent, ProductComponent, CategoryComponent,
+    SpamsComponent, ReportedabuseComponent, PotentialusersComponent, PotentialUsersDetailDialog, ExhibitionsComponent, AdminComponent],
+    providers: [PotentialusersService]
+>>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
 })
 export class AdminModule { }

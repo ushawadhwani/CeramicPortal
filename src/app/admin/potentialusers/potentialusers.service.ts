@@ -63,8 +63,13 @@ export class PotentialusersService {
   }
 
   private updatePotentialUser(potentialuser, options: RequestOptions): Observable<Response> {
+<<<<<<< HEAD
     const url = `${this.baseUrl + 'updatePotentialUsers'}/${potentialuser.id}`;
     return this.http.patch(url, potentialuser, options)
+=======
+    const url = `${this.baseUrl + 'potentialUserDetail'}/${potentialuser.id}`;
+    return this.http.put(url, potentialuser, options)
+>>>>>>> e6ae83d9a33d96d5e58703908e7e954d63426313
       .map(() => potentialuser)
       .do(data => console.log('updatePotentialUser: ' + JSON.stringify(data)))
       .catch(this.handleError);
